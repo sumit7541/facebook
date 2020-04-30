@@ -1,3 +1,12 @@
+<?php
+include_once "include/config.php";
+$log = $_SESSION['user'];
+$data = callingData('account',"where email='$log' or contact='$log'",true);
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,27 +16,14 @@
 </head>
 <body class="bg-light">
   <?php include "include/nav.php"; ?>
-   <nav class="navbar navbar navbar-expand-lg navbar-dark bg-primary">
-       <div class="container">
-           <a href="" class="navbar-brand">Facebook</a>
-           <form action="" class="form-inline mx-auto">
-               <input type="search" class="form-control" size="70">
-               <input type="submit" class="btn btn-dark">
-           </form>
-           <ul class="navbar-nav ml-auto">
-               <li class="nav-item"><a href="" class="nav-link">Home</a></li>
-               <li class="nav-item"><a href="" class="nav-link">Profie</a></li>
-               <li class="nav-item"><a href="" class="nav-link">Logout</a></li>
-           </ul>
-       </div>
-   </nav>
+ 
    <div class="container mt-3">
        <div class="row">
            <div class="col-lg-3">
                <div class="card">
                   <img src="https://via.placeholder.com/250" alt="">
                    <div class="card-body text-center">
-                      <h2 class="h6 text-uppercase">Sumit Kumar</h2>
+                      <h2 class="h6 text-uppercase"><?= $data ['first_name']; ?></h2>
                        
                    </div>
                </div>
